@@ -1,4 +1,6 @@
 # coding=utf-8
+# 数据类型和变量
+
 print 'hello python'
 print 'hello world'
 print 'This is python', 'leraning coding', 'wole'
@@ -54,12 +56,13 @@ print '布尔值', True
 print '布尔值', False
 
 # 布尔值运算 and 、or、not
+# and 运算相同结果为True，不同结果则为False
 print 'True and True =', True and True
 print 'True and False =', True and False
-
+# or 运算只要有True，结果就是True
 print 'True or True =', True or True
 print 'True or False =', True or False
-
+# 非运算，True变成False，False变成True
 print 'not True =', not True
 print 'not False =', not False
 
@@ -71,3 +74,22 @@ a = 1
 print a
 a = a + 1
 print a
+an = True
+v = 'ABC'  # 内存中创建一个'ABC'的字符串；内存中创建一个a的变量，并把它指向'ABC'
+
+aa = 'ABC'
+bb = aa
+aa = 'XYZ'
+print bb
+
+# 常亮
+PI = 3.14159265359
+print PI
+
+# 整数除以整数永远是整数，如果一个是浮点数结果就不在市整数了
+print 10 / 3
+print 10.0 / 3
+
+# 取余数
+print 10 % 8
+
