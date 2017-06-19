@@ -68,3 +68,12 @@ print v
 # 通过remove(key)的方法删除元素
 v.remove(3)
 print v
+
+# set可以看成数学上无序和无重复的元素，因此俩个set可以做数学意义上的交集，并集操作
+s1 = set([1, 2, 3, 4])
+s2 = set([2, 3, 4, 5])
+print '交集:', s1 & s2
+print '并集：', s1 | s2
+
+# 使用key-value存储结构的dict在Python中非常有用，选择不可变对象作为key很重要，最常用的key是字符串。
+# tuple虽然是不变对象，但试试把(1, 2, 3)和(1, [2, 3])放入dict或set中，并解释结果。
