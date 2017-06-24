@@ -32,6 +32,36 @@ def nop():
 a = 11
 if a > 11:
     pass
+
+
 # 无pass 运行会有语法错误
 
-# 参数检查
+# 参数检查，对传入的参数进行类型比对，如果不对就报错
+def mine_abs(x):
+    if not isinstance(x, int or float):
+        raise TypeError('参数类型不匹配')
+    if x > 0:
+        print x
+    else:
+        return -x
+
+
+# 添加了参数检查，如果传入的参数类型错误，函数则会抛出一个异常
+
+# 返回多个值 ,返回值是一个tuple
+import math
+
+
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y - step * math.sin(angle)
+    return nx, ny
+
+
+print move(199, 222, 22, math.pi / 6)
+
+# 定义函数时，需要确定函数名和参数个数；
+# 如果有必要，可以先对参数的数据类型做检查；
+# 函数体内部可以用return随时返回函数结果；
+# 函数执行完毕也没有return语句时，自动return None。
+# 函数可以同时返回多个值，但其实就是一个tuple。
