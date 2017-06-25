@@ -116,5 +116,52 @@ calc(nums[0], nums[1], nums[2])
 calc(*nums)
 print calc(*nums)
 
-# 关键字参数
-# 参数组合
+
+# 关键字参数 允许传入0个或者任意个含参数名的参数，这些关键字参数在函数内部组装成一个dict
+def person(name, age, **kw):
+    print 'name：', name, ',age:', age, ',other:', kw
+
+
+# 函数person除了必选参数name和age外，还接受关键字参数kw
+print person('熊猫', 222)
+# 传入关键字参数
+print person('熊猫', 222, CITY='HANGHZHOU')
+print person('熊猫', 222, CITY='HANGHZHOU', Country='CN')
+# 关键字参数作用：扩展函数的功能，在person函数里，我们保证能接受name和age俩个参数
+# 如果调用者愿意提供更多的参数，我们也能收到。注册的时候除了用户名和年龄必填项之外，
+# 其他都是可选项，利用关键字参数来定义可以满足注册需求
+
+# 和可变参数类似，也可以先封装出一个dict，然后把dict转换为关键字参数穿进去
+kw = {'CITY': 'HANGHZHOU', 'Country': 'CN'}
+print person('哈哈', 22, CITY=kw['CITY'], Country=kw['Country'])
+# 简化写法
+print person('哈哈', 22, **kw)
+
+
+# 参数组合 定义函数可以使用必选参数、默认参数、可变参数、关键字参数、这4中参数可以一起使用
+# 注意顺序：必选参数、默认参数、可变参数、关键字参数
+def func(A, B, C=0, *args, **kw):
+    print 'A =', A, 'B =', B, 'C =', C, 'args =', args, 'kw =', kw
+
+print func('A', 'B')
+print func('A', 'B', C=44)
+print func('A', 'B', C=44, args=('a', 'b'))
+print func(1, 2, 3, 'a', 'b', x=99)
+
+# 通过一个tuple和dict，你也可以调用该函数：
+arg = (1, 2, 3, 45, 55)
+kw = {'ss': 333}
+print func(*arg, **kw)
+# 所以，对于任意函数，
+# 都可以通过类似func(*args, **kw)的形式调用它，
+# 无论它的参数是如何定义的
+
+# 默认参数一定是不可变对象，如果是可变对象，运行会有逻辑错误
+# 注意:
+# *args是可变参数,args接收的是一个tuple
+# **kw是关键字参数,kw接收的是一个dict
+
+# 可变参数可以直接传入:func(1,2,3),也可以先组装成list或tuple,再通过*args传入fun(*(1,2,3))
+# 关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})
+
+# 使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
