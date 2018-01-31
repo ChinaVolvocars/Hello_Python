@@ -67,4 +67,20 @@ print('------------------------------------')
 min_max = findMinMax(l)
 print(min_max)
 
+print('------------------------------------')
 
+
+def FirstFactorial(num):
+    result = 1
+
+    for i in range(1, num + 1):
+        result = result * i
+
+    return result
+
+    # keep this function call here
+
+
+factorial = FirstFactorial(5)
+print(factorial)
+print('------------------------------------')
