@@ -1,0 +1,9 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum
